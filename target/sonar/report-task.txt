@@ -1,0 +1,6 @@
+projectKey=ejb-springboot-project
+serverUrl=https://sonarqube.hashedin.com
+serverVersion=8.8.0.42792
+dashboardUrl=https://sonarqube.hashedin.com/dashboard?id=ejb-springboot-project
+ceTaskId=AYq2VwA0M5ImgsF333xS
+ceTaskUrl=https://sonarqube.hashedin.com/api/ce/task?id=AYq2VwA0M5ImgsF333xS

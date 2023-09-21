@@ -1,0 +1,7 @@
+com/hashedin/migration/entity/User.class
+com/hashedin/migration/repository/ProductRepository.class
+com/hashedin/migration/repository/UserRepository.class
+com/hashedin/migration/entity/Product.class
+com/hashedin/migration/services/UserService.class
+com/hashedin/migration/AcmeProjectSpringbootApplication.class
+com/hashedin/migration/controllers/UserController.class

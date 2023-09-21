@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Code Migration Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+}
+
+        /* Style for the button */
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Style for the button on hover */
+        button:hover {
+            background-color: #45a049;
+        }
+        .hidden { display: none; }  
+        .show { display: block; }  
+    </style>
+</head>
+<body>
+  <div id="normal_div" class="show">
+    <h1>Code Migration Report</h1>
+    <pre><table><tr><th>EJB File</th><th>SpringBoot File</th><th>Component</th></tr><tr><td>Product.java</td><td>Product.java</td><td>entity</td></tr><tr><td>User.java</td><td>User.java</td><td>entity</td></tr><tr><td>UserEJB.java</td><td>UserRepository.java</td><td>JPA Repository</td></tr><tr><td>ProductEJB.java</td><td>ProductRepository.java</td><td>JPA Repository</td></tr><tr><td>UserBean.java</td><td>UserService.java</td><td>service</td></tr><tr><td>ProductServlet.java</td><td>ProductController.java</td><td>controller</td></tr><tr><td>UserServlet.java</td><td>UserController.java</td><td>controller</td></tr></table></pre>
+    <h1>Build Result</h1>
+    <pre>[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------< com.mycompany:acme-project-springboot >----------------
+[INFO] Building acme-project-springboot 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.1.0:clean (default-clean) @ acme-project-springboot ---
+[INFO] 
+[INFO] --- jacoco:0.8.5:prepare-agent (default) @ acme-project-springboot ---
+[INFO] argLine set to -javaagent:/Users/yogeshsharma8/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/Users/yogeshsharma8/Desktop/DG_chatBoard/ejbtoSpring/migration/acme-project-springboot/target/jacoco.exec
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ acme-project-springboot ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ acme-project-springboot ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 8 source files to /Users/yogeshsharma8/Desktop/DG_chatBoard/ejbtoSpring/migration/acme-project-springboot/target/classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /Users/yogeshsharma8/Desktop/DG_chatBoard/ejbtoSpring/migration/acme-project-springboot/src/main/java/com/hashedin/migration/controllers/ProductController.java:[24,33] cannot find symbol
+  symbol:   method getProductCount()
+  location: variable userService of type com.hashedin.migration.services.UserService
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3.043 s
+[INFO] Finished at: 2023-09-21T06:04:00Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:compile (default-compile) on project acme-project-springboot: Compilation failure
+[ERROR] /Users/yogeshsharma8/Desktop/DG_chatBoard/ejbtoSpring/migration/acme-project-springboot/src/main/java/com/hashedin/migration/controllers/ProductController.java:[24,33] cannot find symbol
+[ERROR]   symbol:   method getProductCount()
+[ERROR]   location: variable userService of type com.hashedin.migration.services.UserService
+[ERROR] 
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+</pre>
+    <!-- Add a button with an onclick event -->
+    <button id="callPythonApi">Fetch Recommendations</button>
+    <h1>Build Jococo report</h1>
+    <pre>[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------< com.mycompany:acme-project-springboot >----------------
+[INFO] Building acme-project-springboot 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco:0.8.5:report (default-cli) @ acme-project-springboot ---
+[INFO] Skipping JaCoCo execution due to missing execution data file.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.806 s
+[INFO] Finished at: 2023-09-21T06:04:04Z
+[INFO] ------------------------------------------------------------------------
+</pre>
+    <h1>Sonar Result</h1>
+    <pre>You can find the Sonar report in below URL:
+
+ https://sonarqube.hashedin.com/dashboard?id=ejb-springboot-project</pre>
+  </div>
+  <div id="improvements" class="hidden">
+    <h1>Recommendations Report</h1>
+    <h1> Build Error</h1>
+    <pre>[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------< com.mycompany:acme-project-springboot >----------------
+[INFO] Building acme-project-springboot 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.1.0:clean (default-clean) @ acme-project-springboot ---
+[INFO] 
+[INFO] --- jacoco:0.8.5:prepare-agent (default) @ acme-project-springboot ---
+[INFO] argLine set to -javaagent:/Users/yogeshsharma8/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/Users/yogeshsharma8/Desktop/DG_chatBoard/ejbtoSpring/migration/acme-project-springboot/target/jacoco.exec
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ acme-project-springboot ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ acme-project-springboot ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 8 source files to /Users/yogeshsharma8/Desktop/DG_chatBoard/ejbtoSpring/migration/acme-project-springboot/target/classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /Users/yogeshsharma8/Desktop/DG_chatBoard/ejbtoSpring/migration/acme-project-springboot/src/main/java/com/hashedin/migration/controllers/ProductController.java:[24,33] cannot find symbol
+  symbol:   method getProductCount()
+  location: variable userService of type com.hashedin.migration.services.UserService
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3.043 s
+[INFO] Finished at: 2023-09-21T06:04:00Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:compile (default-compile) on project acme-project-springboot: Compilation failure
+[ERROR] /Users/yogeshsharma8/Desktop/DG_chatBoard/ejbtoSpring/migration/acme-project-springboot/src/main/java/com/hashedin/migration/controllers/ProductController.java:[24,33] cannot find symbol
+[ERROR]   symbol:   method getProductCount()
+[ERROR]   location: variable userService of type com.hashedin.migration.services.UserService
+[ERROR] 
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+</pre>
+    <h1>Recommendations</h1>
+   <div>
+    <ul id="listContainer">
+      <!-- List items will be rendered here -->
+      </ul>
+   </div>  
+</div>
+
+
+<script>
+  
+  document.getElementById("callPythonApi").addEventListener("click", function () {
+    // Get the build_content variable
+    var buildContent = `[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------< com.mycompany:acme-project-springboot >----------------
+[INFO] Building acme-project-springboot 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.1.0:clean (default-clean) @ acme-project-springboot ---
+[INFO] 
+[INFO] --- jacoco:0.8.5:prepare-agent (default) @ acme-project-springboot ---
+[INFO] argLine set to -javaagent:/Users/yogeshsharma8/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/Users/yogeshsharma8/Desktop/DG_chatBoard/ejbtoSpring/migration/acme-project-springboot/target/jacoco.exec
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ acme-project-springboot ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ acme-project-springboot ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 8 source files to /Users/yogeshsharma8/Desktop/DG_chatBoard/ejbtoSpring/migration/acme-project-springboot/target/classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /Users/yogeshsharma8/Desktop/DG_chatBoard/ejbtoSpring/migration/acme-project-springboot/src/main/java/com/hashedin/migration/controllers/ProductController.java:[24,33] cannot find symbol
+  symbol:   method getProductCount()
+  location: variable userService of type com.hashedin.migration.services.UserService
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3.043 s
+[INFO] Finished at: 2023-09-21T06:04:00Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:compile (default-compile) on project acme-project-springboot: Compilation failure
+[ERROR] /Users/yogeshsharma8/Desktop/DG_chatBoard/ejbtoSpring/migration/acme-project-springboot/src/main/java/com/hashedin/migration/controllers/ProductController.java:[24,33] cannot find symbol
+[ERROR]   symbol:   method getProductCount()
+[ERROR]   location: variable userService of type com.hashedin.migration.services.UserService
+[ERROR] 
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+`;
+
+    // Construct the URL
+    var apiUrl = "http://localhost:8000/ask_improvements";
+
+    // Create a new XMLHttpRequest instance
+    var xhr = new XMLHttpRequest();
+    
+    // Configure the request as a POST request
+    xhr.open("POST", apiUrl, true);
+
+    // Set the Content-Type header to indicate JSON data in the request body
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+    // Define the data to send in the request body as a JavaScript object
+    var requestData = {
+      build_result: buildContent
+    };
+
+    // Convert the requestData object to a JSON string
+    var requestBody = JSON.stringify(requestData);
+
+    // Set up an event handler to handle the response
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                // Handle the successful response from the server
+                //console.log(xhr.responseText);
+                //const apiResponseDiv = document.getElementById('apiResponseDiv'); 
+                //apiResponseDiv.style.display = 'block';  
+                //apiResponseDiv.innerHTML = JSON.stringify(xhr.responseText, null, 2);
+                document.getElementById('improvements').classList.remove('hidden');
+                document.getElementById('normal_div').classList.remove('show');
+                document.getElementById('normal_div').classList.add('hidden');
+
+                var b = JSON.parse(xhr.responseText)['improvements'];
+                console.log(b)
+                var c = b.split('\n');
+                var listContainer = document.getElementById('listContainer');
+                c.forEach(function (item) {
+                  console.log(item + '\n');
+                  const listItem = document.createElement('li');
+                  listItem.textContent = item;
+                  listContainer.appendChild(listItem);
+                });
+                
+            } else {
+                // Handle errors or other status codes here
+                console.error("Request failed with status: " + xhr.status);
+                alert("Failed to call Python API.");
+            }
+        }
+    };
+
+    // Send the POST request with the JSON data in the request body
+    xhr.send(requestBody);
+});
+</script>
+</body>
+</html>
